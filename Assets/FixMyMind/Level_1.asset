@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5c4208e60f8cb4b80cfe4c28671955, type: 3}
+  m_Name: Level_1
+  m_EditorClassIdentifier: 
+  otherSide:
+  - Why are you late for work?
+  - Wanna get fired?
+  - Oh really, how was it gone?
+  - Then give your resignation!
+  - This is your last chance
+  - Very good news!
+  - Why?
+  - Haha, I don't fire you :D
+  - Get out!
+  - Okay than :)
+  - Get out then!
+  - You idiot!!
+  - Great work! Congrats!
+  - Great work!
+  - Oh no!
+  us:
+  - empty
+  - I was sleep
+  - I was at a meeting with investors
+  - Yes, I found a better job
+  - No, I will be more careful
+  - They want to work with us!
+  - They don't interested in our project
+  - I need to be fired for compensation
+  - Then take it!
+  - I will make it up
+  - I don't care!
+  - But I rejected them
+  - I will take care of them
+  - Just kidding, I got the job :D
+  - They found our project simple :(
+  finishIndexes: 0700000008000000090000000a0000000b0000000c0000000d0000000e000000
+  happinesPoints: 32000000ecffffff08000000ecffffff1300000015000000e2ffffff14000000f6ffffff15000000e2ffffffceffffff1500000032000000ecffffff

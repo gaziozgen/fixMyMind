@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5c4208e60f8cb4b80cfe4c28671955, type: 3}
+  m_Name: Level_2
+  m_EditorClassIdentifier: 
+  otherSide:
+  - I want to be a pole dancer but my parents won't let me.
+  - I am a big girl!
+  - Yeah, I think so too. But how am I going to convince my family?
+  - Yes, I grew up. I can make my own decisions. Can you help me to tell my parents?
+  - I hate you!!
+  - Oh doctor, you are genious! Can you do it for me?
+  - But my father is very angry with me :(
+  - Thanks doctor! I love you..
+  - ... okay
+  - end9
+  - end10
+  - Thanks doctor! I love you..
+  - ... okay
+  - I hate you! The worst doctor ever!
+  - Thanks doctor! I love you..
+  us:
+  - empty
+  - Don't you think you're small?
+  - You can do whatever you want!
+  - Tell your parents that you're grown and can make your own decisions.
+  - No, you are not!
+  - Tell your family that you are going to study with  your friends. (Lie)
+  - Tell your parents it's cool to be a pole dancer.
+  - I will convince him..
+  - No, its not my business.
+  - 9
+  - 10
+  - Yes, dont be sad..
+  - No, its not my business.
+  - Haha! Loser..
+  - I will convince him..
+  finishIndexes: 07000000080000000b0000000c0000000d0000000e00000004000000
+  happinesPoints: 28000000ecffffff1500000013000000ecffffff130000000a000000280000000000000000000000000000001500000000000000ecffffff15000000

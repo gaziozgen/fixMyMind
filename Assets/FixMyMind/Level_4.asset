@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5c4208e60f8cb4b80cfe4c28671955, type: 3}
+  m_Name: Level_4
+  m_EditorClassIdentifier: 
+  otherSide:
+  - My wife does not take me home
+  - She saw me with another woman
+  - But what should I say to her?
+  - Yes, too bad. What should I do?
+  - But we were in a hotel restaurant!
+  - You are not helping me at all
+  - What will I say if she asks about his mother?
+  - Yeah, you are a genius thank you!
+  - She is going to break up with me for sure! You are not helping me at all!
+  - Yeah, you are a genius. Thank you!
+  - Shut up, idiot!
+  - end11
+  - end12
+  - You are not helping me at all
+  - Yeah, you are a genius. Thank you!
+  us:
+  - empty
+  - Why did that happen?
+  - You can stay with your daughter
+  - It's quite bad, I feel sorry for you
+  - "You can say \u0131t was a job interview"
+  - I don't know you. Try to find out.
+  - Tell her you to miss her
+  - You can say she was your fan and wants to take a photo
+  - Tell the truth and apologize!
+  - You can say it was for the election of the hotel's general manager.
+  - You are so stupid!
+  - 11
+  - 12
+  - I don't know you, try to find out
+  - Tell her that her mother is fine and will come to you as soon as possible
+  finishIndexes: 0700000008000000090000000a000000050000000d0000000e000000
+  happinesPoints: 1e0000000000000014000000f6ffffff14000000000000000a0000003c000000f6ffffff28000000e2ffffff0000000000000000f6ffffff1e000000
