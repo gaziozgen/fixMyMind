@@ -3,7 +3,62 @@ guid: 5f8093aeaff6db8459dd2bc4003710fc
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: belt
+    second: {fileID: 2100000, guid: 2a9ffca1cfc04174ba759e63d2d4983e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: beltHead
+    second: {fileID: 2100000, guid: adc3f126660eb6a42ac54e8bf79f7e82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hairTemp
+    second: {fileID: 2100000, guid: da85f9c4f5520ce468742ecf3b71e127, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: iris
+    second: {fileID: 2100000, guid: 1f2790931003e7f4fa6b562ada79fa04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jacket
+    second: {fileID: 2100000, guid: 24913164122ed944196f0640304a0df1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pant
+    second: {fileID: 2100000, guid: 362213f720994ec4eb885efc626ff46d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shirt
+    second: {fileID: 2100000, guid: 92783338d1662a84fbd8574aa26ac5ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trumpHead
+    second: {fileID: 2100000, guid: ca5b6a48db4491549b3ed00f9058d236, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trumpShoes
+    second: {fileID: 2100000, guid: c2cfa79a2f03bf942a609af285c10d01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trump_tie1
+    second: {fileID: 2100000, guid: 51a9362e1ef4efa49a8d4e2822910de9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trumpeyes
+    second: {fileID: 2100000, guid: 40dafb8374f8f7e45ad855a8e70f9177, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
