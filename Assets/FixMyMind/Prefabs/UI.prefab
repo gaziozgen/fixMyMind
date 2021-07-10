@@ -65,7 +65,6 @@ RectTransform:
   m_Children:
   - {fileID: 2247369238204965274}
   - {fileID: 4598614703357650720}
-  - {fileID: 8634958336699986814}
   - {fileID: 5319887189361332890}
   - {fileID: 2373018427900128907}
   - {fileID: 3974608448189538815}
@@ -151,9 +150,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog: {fileID: 11400000, guid: bdc858c537a24e44d809c9561d7f9683, type: 2}
-  otherSide: {fileID: 5115274994040489763}
-  button1: {fileID: 5942934588155144851}
-  button2: {fileID: 5025886865739572711}
+  otherSideText: {fileID: 5115274994040489763}
+  button1Text: {fileID: 5942934588155144851}
+  button2Text: {fileID: 5025886865739572711}
+  otherSide: {fileID: 2040682281601219797}
+  button1: {fileID: 5678380579805650619}
+  button2: {fileID: 6416411149807456719}
   slider: {fileID: 7104911204117002560}
   char1: {fileID: 0}
   emoji: {fileID: 1949716666713038900}
@@ -316,7 +318,7 @@ GameObject:
   - component: {fileID: 6875500420901736600}
   - component: {fileID: 4898250731705980462}
   m_Layer: 5
-  m_Name: Image
+  m_Name: OtherSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -332,7 +334,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 8634958336699986814}
   m_Father: {fileID: 1003886239371140042}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -613,7 +616,7 @@ GameObject:
   - component: {fileID: 3281370921053834172}
   - component: {fileID: 5115274994040489763}
   m_Layer: 5
-  m_Name: other side
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -626,16 +629,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5796429062632603501}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1003886239371140042}
-  m_RootOrder: 2
+  m_Father: {fileID: 4598614703357650720}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -61.404, y: -158.75}
+  m_AnchoredPosition: {x: 4.734001, y: -134.7505}
   m_SizeDelta: {x: 395.247, y: 224.243}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3281370921053834172
@@ -679,7 +682,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Ben bir y\u0131ld\u0131r kar\u0131m\u0131 sikmem! \n"
+  m_Text: 'lorem ipsum dolor sit amet
+
+'
 --- !u!1 &7457485221156785462
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,7 +717,7 @@ RectTransform:
   - {fileID: 579630875933165156}
   - {fileID: 6159739276889004757}
   m_Father: {fileID: 1003886239371140042}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -787,7 +792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 735250227039307277, guid: df535899d029cfa44971716a0aa5e67d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 735250227039307277, guid: df535899d029cfa44971716a0aa5e67d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -865,12 +870,27 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3861794473795951558}
+    - target: {fileID: 8692807121359323669, guid: df535899d029cfa44971716a0aa5e67d, type: 3}
+      propertyPath: m_Text
+      value: hay hay
+      objectReference: {fileID: 0}
     - target: {fileID: 9077333730480605782, guid: df535899d029cfa44971716a0aa5e67d, type: 3}
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df535899d029cfa44971716a0aa5e67d, type: 3}
+--- !u!114 &5678380579805650619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7212282313115153981, guid: df535899d029cfa44971716a0aa5e67d, type: 3}
+  m_PrefabInstance: {fileID: 3087927280992086150}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5942934588155144851 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8692807121359323669, guid: df535899d029cfa44971716a0aa5e67d, type: 3}
@@ -904,7 +924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 735250227039307277, guid: df535899d029cfa44971716a0aa5e67d, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 735250227039307277, guid: df535899d029cfa44971716a0aa5e67d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -988,7 +1008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8692807121359323669, guid: df535899d029cfa44971716a0aa5e67d, type: 3}
       propertyPath: m_Text
-      value: Kes lan
+      value: hoh hoh hoh
       objectReference: {fileID: 0}
     - target: {fileID: 9077333730480605782, guid: df535899d029cfa44971716a0aa5e67d, type: 3}
       propertyPath: m_Name
@@ -1001,6 +1021,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 735250227039307277, guid: df535899d029cfa44971716a0aa5e67d, type: 3}
   m_PrefabInstance: {fileID: 4403543505934133234}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6416411149807456719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7212282313115153981, guid: df535899d029cfa44971716a0aa5e67d, type: 3}
+  m_PrefabInstance: {fileID: 4403543505934133234}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5025886865739572711 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8692807121359323669, guid: df535899d029cfa44971716a0aa5e67d, type: 3}

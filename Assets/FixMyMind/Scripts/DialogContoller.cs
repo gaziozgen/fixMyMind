@@ -9,9 +9,12 @@ public class DialogContoller : MonoBehaviour
     private FixMyMindLevel levelManager;
 
     [SerializeField] private Dialog dialog;
-    [SerializeField] private Text otherSide;
-    [SerializeField] private Text button1;
-    [SerializeField] private Text button2;
+    [SerializeField] private Text otherSideText;
+    [SerializeField] private Text button1Text;
+    [SerializeField] private Text button2Text;
+    [SerializeField] private GameObject otherSide;
+    [SerializeField] private Button button1;
+    [SerializeField] private Button button2;
     [SerializeField] private Slider slider;
     [SerializeField] private Animator char1;
     [SerializeField] private Image emoji;
@@ -41,6 +44,10 @@ public class DialogContoller : MonoBehaviour
 
     private void UpdateUI()
     {
+        otherSide.transform.LeanScale(new Vector3(0, 0, 0), 0.2f);
+        button1.transform.LeanScale(new Vector3(0, 0, 0), 0.2f);
+        button2.transform.LeanScale(new Vector3(0, 0, 0), 0.2f);
+
         float newHappines = dialog.happinesPoints[indexNo];
 
         HappinesUpdate(newHappines);
@@ -49,8 +56,6 @@ public class DialogContoller : MonoBehaviour
         {
             Animate(newHappines);
         }
-
-        otherSide.text = dialog.otherSide[indexNo];
 
         bool finish = false;
         for (int i = 0; i < dialog.finishIndexes.Length; i++)
@@ -64,9 +69,31 @@ public class DialogContoller : MonoBehaviour
 
         if (!finish)
         {
-            button1.text = dialog.us[(indexNo * 2) + 1];
-            button2.text = dialog.us[(indexNo * 2) + 2];
+
+            LeanTween.delayedCall(0.3f, () =>
+            {
+                otherSideText.text = dialog.otherSide[indexNo];
+                otherSide.transform.LeanScale(new Vector3(1, 1, 1), 0.5f);
+            });
+
+            LeanTween.delayedCall(0.8f, () =>
+            {
+                button1Text.text = dialog.us[(indexNo * 2) + 1];
+                button2Text.text = dialog.us[(indexNo * 2) + 2];
+                button1.transform.LeanScale(new Vector3(1, 1, 1), 0.5f);
+                button2.transform.LeanScale(new Vector3(1, 1, 1), 0.5f);
+            });
+            
+        } 
+        else
+        {
+            LeanTween.delayedCall(0.3f, () =>
+            {
+                otherSideText.text = dialog.otherSide[indexNo];
+                otherSide.transform.LeanScale(new Vector3(1, 1, 1), 0.5f);
+            });
         }
+
     }
 
     private void HappinesUpdate(float newHappines)
@@ -97,7 +124,6 @@ public class DialogContoller : MonoBehaviour
             emoji.sprite = emojis[0];
         }
 
-        // bitiþ zamanlamasý ve emoji deðiþimi
     }
 
     private void Animate(float happines)
@@ -126,10 +152,6 @@ public class DialogContoller : MonoBehaviour
 
     private void Finish()
     {
-
-
-        button1.transform.parent.gameObject.SetActive(false);
-        button2.transform.parent.gameObject.SetActive(false);
 
         bool result = false;
         
