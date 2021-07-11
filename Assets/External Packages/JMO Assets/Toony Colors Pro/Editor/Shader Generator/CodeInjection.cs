@@ -363,7 +363,7 @@ namespace ToonyColorsPro
 							string path = AssetDatabase.GUIDToAssetPath(guid);
 							if (string.IsNullOrEmpty(path))
 							{
-								Debug.LogError("Can't find path for Code Injection file GUID: " + guid + " (filename: \"" + filename + "\")");
+								Debug.LogError("[SG2 Code Injection] Can't find path for Code Injection file GUID: " + guid + " (filename: \"" + filename + "\")");
 								return;
 							}
 
@@ -378,17 +378,17 @@ namespace ToonyColorsPro
 
 							if (string.IsNullOrEmpty(ip.blockName))
 							{
-								Debug.LogError("Block name was not properly serialized.");
+								Debug.LogWarning("[SG2 Code Injection] Block name was not properly serialized.");
 								injectedPoints.RemoveAt(i);
-								return;
+								continue;
 							}
 
 							var matchingBlock = this.injectableBlocks.Find(block => block.name == ip.blockName);
 							if (matchingBlock == null)
 							{
-								Debug.LogError(string.Format("Block wasn't found in source file. Block name: \"{0}\", Source file: \"{1}\"", ip.blockName, this.filename));
+								Debug.LogWarning(string.Format("[SG2 Code Injection] Block wasn't found in source file. Block name: \"{0}\", Source file: \"{1}\"", ip.blockName, this.filename));
 								injectedPoints.RemoveAt(i);
-								return;
+								continue;
 							}
 
 							ip.block = matchingBlock;
@@ -751,7 +751,7 @@ namespace ToonyColorsPro
 							}
 							catch (System.Exception e)
 							{
-								Debug.LogError(string.Format("Couldn't load code injection include file, error at line {0}:  {1}", lineNb, e.ToString()));
+								Debug.LogError(string.Format("[SG2 Code Injection] Couldn't load code injection include file, error at line {0}:  {1}", lineNb, e.ToString()));
 								return null;
 							}
 						}
@@ -778,7 +778,7 @@ namespace ToonyColorsPro
 								if (!TryParseIncludeFile(newIncludeFile, template))
 								{
 									includeFile = null;
-									Debug.LogError(ShaderGenerator2.ErrorMsg("Couldn't load code injection include file."));
+									Debug.LogError(ShaderGenerator2.ErrorMsg("[SG2 Code Injection] Couldn't load code injection include file."));
 								}
 							}
 						};

@@ -5,9 +5,13 @@ using FateGames;
 
 public class FixMyMindLevel : LevelManager
 {
+    private DialogContoller dialogContoller;
+    [SerializeField] private GameObject slider;
+
     private new void Awake()
     {
         base.Awake();
+        dialogContoller = FindObjectOfType<DialogContoller>();
     }
 
     public override void FinishLevel(bool success)
@@ -19,5 +23,7 @@ public class FixMyMindLevel : LevelManager
     public override void StartLevel()
     {
         //print("level started");
+        dialogContoller.UpdateUI();
+        slider.SetActive(true);
     }
 }

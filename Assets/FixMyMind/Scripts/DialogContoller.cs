@@ -27,7 +27,6 @@ public class DialogContoller : MonoBehaviour
     void Awake()
     {
         levelManager = (FixMyMindLevel)LevelManager.Instance;
-        UpdateUI();
     }
 
     public void Button1()
@@ -42,7 +41,10 @@ public class DialogContoller : MonoBehaviour
         UpdateUI();
     }
 
-    private void UpdateUI()
+
+
+
+    public void UpdateUI()
     {
         otherSide.transform.LeanScale(new Vector3(0, 0, 0), 0.2f);
         button1.transform.LeanScale(new Vector3(0, 0, 0), 0.2f);
@@ -160,6 +162,10 @@ public class DialogContoller : MonoBehaviour
             result = true;
         }
 
-        levelManager.FinishLevel(result);
+        LeanTween.delayedCall(1.5f, () =>
+        {
+            levelManager.FinishLevel(result);
+        });
+
     }
 }

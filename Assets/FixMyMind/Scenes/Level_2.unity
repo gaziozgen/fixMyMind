@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28314382, g: 0.74801886, b: 0.81185544, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -245,11 +245,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2281219107836463686, guid: 8ae7f445510c80746a8196fe459d505f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2281219107836463686, guid: 8ae7f445510c80746a8196fe459d505f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2756422070632276327, guid: 8ae7f445510c80746a8196fe459d505f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -273,15 +273,15 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 4eb5662677b8d1d499b421f556540787, type: 2}
     - target: {fileID: 3891333572196619363, guid: 8ae7f445510c80746a8196fe459d505f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3891333572196619363, guid: 8ae7f445510c80746a8196fe459d505f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3891333572196619363, guid: 8ae7f445510c80746a8196fe459d505f, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4212954418951270230, guid: 8ae7f445510c80746a8196fe459d505f, type: 3}
       propertyPath: m_Sprite
@@ -331,6 +331,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7457485221156785462, guid: 8ae7f445510c80746a8196fe459d505f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8344536641536823512, guid: 8ae7f445510c80746a8196fe459d505f, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -353,6 +357,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae7f445510c80746a8196fe459d505f, type: 3}
+--- !u!1 &370172261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7457485221156785462, guid: 8ae7f445510c80746a8196fe459d505f, type: 3}
+  m_PrefabInstance: {fileID: 370172260}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &400441859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -408,6 +417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7216539793870748389, guid: 6d554ed416630364fa042db71f8cbc7c, type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 370172261}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d554ed416630364fa042db71f8cbc7c, type: 3}
 --- !u!1001 &534889762

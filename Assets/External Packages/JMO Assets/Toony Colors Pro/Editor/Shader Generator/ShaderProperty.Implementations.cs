@@ -321,6 +321,7 @@ namespace ToonyColorsPro
 					set { _PropertyName = UniqueMaterialPropertyName.GetUniquePropertyName(value, this); }
 				}
 				[Serialization.SerializeAs("md")] public string MaterialDrawers = "";
+				[Serialization.SerializeAs("gbv")] public bool IsGlobalVariable = false;
 				[Serialization.SerializeAs("custom")] public bool IsCustomMaterialProperty = false;
 				[Serialization.SerializeAs("refs")] public string CustomMaterialPropertyReferences = "";
 
@@ -466,9 +467,20 @@ namespace ToonyColorsPro
 
 					BeginHorizontal();
 					{
-						bool highlighted = !IsDefaultImplementation ? !string.IsNullOrEmpty(MaterialDrawers) : MaterialDrawers != GetDefaultImplementation<Imp_MaterialProperty>().MaterialDrawers;
-						SGUILayout.InlineLabel("Property Drawers", "Add one or multiple property drawers/decorators to this property\n(e.g. [NoScaleOffset])", highlighted);
-						MaterialDrawers = SGUILayout.TextField(MaterialDrawers);
+						bool highlighted = !IsDefaultImplementation ? IsGlobalVariable : IsGlobalVariable != GetDefaultImplementation<Imp_MaterialProperty>().IsGlobalVariable;
+						SGUILayout.InlineLabel("Global Variable", "Make this variable global so that it can be changed through scripts, e.g. with 'Shader.SetGlobalColor'", highlighted);
+						IsGlobalVariable = SGUILayout.Toggle(IsGlobalVariable);
+					}
+					EndHorizontal();
+
+					BeginHorizontal();
+					{
+						using (new EditorGUI.DisabledScope(IsGlobalVariable))
+						{
+							bool highlighted = !IsDefaultImplementation ? !string.IsNullOrEmpty(MaterialDrawers) : MaterialDrawers != GetDefaultImplementation<Imp_MaterialProperty>().MaterialDrawers;
+							SGUILayout.InlineLabel("Property Drawers", "Add one or multiple property drawers/decorators to this property\n(e.g. [NoScaleOffset])", highlighted);
+							MaterialDrawers = SGUILayout.TextField(MaterialDrawers);
+						}
 					}
 					EndHorizontal();
 
@@ -488,6 +500,16 @@ namespace ToonyColorsPro
 				}
 
 				internal override string PrintProperty(string indent)
+				{
+					if (IsGlobalVariable)
+					{
+						return "";
+					}
+
+					return PrintPropertyInternal(indent);
+				}
+				
+				internal virtual string PrintPropertyInternal(string indent)
 				{
 					return MaterialDrawers + " ";
 				}
@@ -510,8 +532,8 @@ namespace ToonyColorsPro
 				}
 
 				internal override string PrintVariableFixedFunction() { return string.Format("[{0}]", PropertyName); }
-				internal override string PrintProperty(string indent) { return base.PrintProperty(indent) + string.Format(CultureInfo.InvariantCulture, "{0} (\"{1}\", Float) = {2}", PropertyName, Label, DefaultValue); }
-				internal override string PrintVariableDeclare(string indent) { return string.Format("float {0};", PropertyName); }
+				internal override string PrintPropertyInternal(string indent) { return base.PrintPropertyInternal(indent) + string.Format(CultureInfo.InvariantCulture, "{0} (\"{1}\", Float) = {2}", PropertyName, Label, DefaultValue); }
+				internal override string PrintVariableDeclare(string indent) { return string.Format("{0}float {1};", indent, PropertyName); }
 				internal override string PrintVariableFragment(string inputSource, string outputSource, string arguments) { return FetchVariable(PropertyName, true); }
 
 				internal override void NewLineGUI(bool usedByCustomCode)
@@ -547,8 +569,8 @@ namespace ToonyColorsPro
 				}
 
 				internal override string PrintVariableFixedFunction() { return string.Format("[{0}]", PropertyName); }
-				internal override string PrintProperty(string indent) { return base.PrintProperty(indent) + string.Format(CultureInfo.InvariantCulture, "{0} (\"{1}\", Range({3},{4})) = {2}", PropertyName, Label, DefaultValue, Min, Max); }
-				internal override string PrintVariableDeclare(string indent) { return string.Format("float {0};", PropertyName); }
+				internal override string PrintPropertyInternal(string indent) { return base.PrintPropertyInternal(indent) + string.Format(CultureInfo.InvariantCulture, "{0} (\"{1}\", Range({3},{4})) = {2}", PropertyName, Label, DefaultValue, Min, Max); }
+				internal override string PrintVariableDeclare(string indent) { return string.Format("{0}float {1};", indent, PropertyName); }
 				internal override string PrintVariableFragment(string inputSource, string outputSource, string arguments) { return FetchVariable(PropertyName, true); }
 
 				internal override void NewLineGUI(bool usedByCustomCode)
@@ -634,13 +656,13 @@ namespace ToonyColorsPro
 					InitChannelsCount();
 				}
 
-				internal override string PrintProperty(string indent) { return base.PrintProperty(indent) + string.Format(CultureInfo.InvariantCulture, "{0} (\"{1}\", Vector) = ({2},{3},{4},{5})", PropertyName, Label, DefaultValue.x, DefaultValue.y, DefaultValue.z, DefaultValue.w); }
+				internal override string PrintPropertyInternal(string indent) { return base.PrintPropertyInternal(indent) + string.Format(CultureInfo.InvariantCulture, "{0} (\"{1}\", Vector) = ({2},{3},{4},{5})", PropertyName, Label, DefaultValue.x, DefaultValue.y, DefaultValue.z, DefaultValue.w); }
 				internal override string PrintVariableDeclare(string indent)
 				{
 					// Always declare a float4, even if all channels aren't necessarily used, as they could still be used for custom code
 					//var channels = ChannelsCount > 1 ? ChannelsCount.ToString() : "";
 					string channels = "4";
-					return string.Format("{0}{1} {2};", FloatPrec, channels, PropertyName);
+					return string.Format("{0}{1}{2} {3};", indent, FloatPrec, channels, PropertyName);
 				}
 				internal override string PrintVariableFragment(string inputSource, string outputSource, string arguments)
 				{
@@ -747,13 +769,13 @@ namespace ToonyColorsPro
 					InitChannelsCount();
 				}
 
-				internal override string PrintProperty(string indent) { return base.PrintProperty(indent) + string.Format(CultureInfo.InvariantCulture, "{7}{6}{0} (\"{1}\", Color) = ({2},{3},{4},{5})", PropertyName, Label, DefaultValue.r, DefaultValue.g, DefaultValue.b, DefaultValue.a, Hdr ? "[HDR] " : "", ChannelsCount < 4 ? "[TCP2ColorNoAlpha] " : ""); }
+				internal override string PrintPropertyInternal(string indent) { return base.PrintPropertyInternal(indent) + string.Format(CultureInfo.InvariantCulture, "{7}{6}{0} (\"{1}\", Color) = ({2},{3},{4},{5})", PropertyName, Label, DefaultValue.r, DefaultValue.g, DefaultValue.b, DefaultValue.a, Hdr ? "[HDR] " : "", ChannelsCount < 4 ? "[TCP2ColorNoAlpha] " : ""); }
 				internal override string PrintVariableDeclare(string indent)
 				{
 					// Always declare a float4, even if all channels aren't necessarily used, as they could still be used for custom code
 					//var channels = ChannelsCount > 1 ? ChannelsCount.ToString() : "";
 					string channels = "4";
-					return string.Format("{0}{1} {2};", Hdr ? FloatPrecision.half : FloatPrecision.@fixed, channels, PropertyName);
+					return string.Format("{0}{1}{2} {3};", indent, Hdr ? FloatPrecision.half : FloatPrecision.@fixed, channels, PropertyName);
 				}
 				internal override string PrintVariableFragment(string inputSource, string outputSource, string arguments)
 				{
@@ -930,6 +952,7 @@ namespace ToonyColorsPro
 				[Serialization.SerializeAs("sin_anm")] public bool SineAnimation;
 				[Serialization.SerializeAs("sin_anmv")] public string SineAnimationVariable = "";
 				[Serialization.SerializeAs("sin_anmv_lbl")] public string SineAnimationVariableLabel = "";
+				[Serialization.SerializeAs("gsin")] public bool GlobalSineAnimation;
 				[Serialization.SerializeAs("notile")] public bool NoTile;
 				[Serialization.SerializeAs("triplanar_local")] public bool LocalSpaceTriplanar;
 				[Serialization.SerializeAs("def")] public string DefaultValue = SGUILayout.Constants.DefaultTextureValues[0];
@@ -1209,7 +1232,9 @@ namespace ToonyColorsPro
 						}
 						else
 						{
-							return string.Format("{0}.{1}.xy", programType == ProgramType.Vertex ? output : input, coord);
+							string result = string.Format("{0}.{1}.xy", programType == ProgramType.Vertex ? output : input, coord);
+							result = result.Replace(".xy.xy", ".xy").Replace(".zw.xy", ".zw");
+							return result;
 						}
 					}
 				}
@@ -1288,7 +1313,7 @@ namespace ToonyColorsPro
 				// Returns true if this property's UV sin anim variable can be referenced
 				public bool HasValidSineAnimVariable()
 				{
-					return this.SineAnimation && !this.UseCustomSineAnimVariable();
+					return this.SineAnimation && !this.GlobalSineAnimation && !this.UseCustomSineAnimVariable();
 				}
 
 				
@@ -1426,12 +1451,12 @@ namespace ToonyColorsPro
 
 				#endregion
 
-				internal override string PrintProperty(string indent)
+				internal override string PrintPropertyInternal(string indent)
 				{
 					bool noScaleOffset = !(UseTilingOffset && !UseCustomTilingOffsetVariable());
 					noScaleOffset |= ParentShaderProperty.layerCloneSuffix != null && this.GlobalTilingOffset;
 					
-					var prop = base.PrintProperty(indent) + string.Format("{3}{0} (\"{1}\", 2D) = \"{2}\" {{}}", PropertyName, Label, DefaultValue, noScaleOffset ? "[NoScaleOffset] " : "");
+					var prop = base.PrintPropertyInternal(indent) + string.Format("{3}{0} (\"{1}\", 2D) = \"{2}\" {{}}", PropertyName, Label, DefaultValue, noScaleOffset ? "[NoScaleOffset] " : "");
 					if (UseScrolling && !UseCustomScrollingVariable())
 						prop += string.Format("\n{0}[TCP2UVScrolling] {1}_SC (\"{2} UV Scrolling\", Vector) = (1,1,0,0)", indent, PropertyName, Label);
 					if (RandomOffset)
@@ -1444,7 +1469,7 @@ namespace ToonyColorsPro
 				}
 				internal override string PrintVariableDeclareOutsideCBuffer(string indent)
 				{
-					return string.Format("sampler2D {0};", PropertyName);
+					return string.Format("{0}sampler2D {1};", indent, PropertyName);
 				}
 				internal override string PrintVariableDeclare(string indent)
 				{
@@ -1479,7 +1504,7 @@ namespace ToonyColorsPro
 					var randomOffsetMod = (RandomOffset && !GlobalRandomOffset) ? string.Format(" + hash22(floor(_Time.xx * {0}.xx) / {0}.xx)", GetDefaultOffsetSpeedVariable()) : "";
 
 					string uvSineMod;
-					if (SineAnimation)
+					if (SineAnimation && !GlobalSineAnimation)
 					{
 						string uvSinProperty = UseCustomSineAnimVariable() ? SineAnimationVariable : GetDefaultSineAnimVariable();
 						string uvSinVariable = string.Format("uvSinAnim_{0}", PropertyName);
@@ -1934,7 +1959,7 @@ namespace ToonyColorsPro
 										bool highlighted = !IsDefaultImplementation ? GlobalScrolling : GlobalScrolling != GetDefaultImplementation<Imp_MaterialProperty_Texture>().GlobalScrolling;
 										SGUILayout.InlineLabel("└   Global", "Makes the scrolling global to the selected UV coordinates: all textures using the same UV coordinates will inherit the scrolling animation and values defined for this texture.\nIt also means that they will be calculated in the vertex shader (faster but uses one interpolator).", highlighted);
 										GlobalScrolling = SGUILayout.Toggle(GlobalScrolling);
-										GlobalRandomOffset = GlobalScrolling;
+										GlobalRandomOffset = GlobalSineAnimation = GlobalScrolling;
 									}
 									EndHorizontal();
 
@@ -2045,6 +2070,15 @@ namespace ToonyColorsPro
 						{
 							using (new EditorGUI.DisabledGroupScope(!showUvSinOptions))
 							{
+								BeginHorizontal();
+								{
+									bool highlighted = !IsDefaultImplementation ? GlobalSineAnimation : GlobalSineAnimation != GetDefaultImplementation<Imp_MaterialProperty_Texture>().GlobalSineAnimation;
+									SGUILayout.InlineLabel("└   Global", "Makes the UV sin animation global to the selected UV coordinates: all textures using the same UV coordinates will inherit the sine animation and values defined for this texture.", highlighted);
+									GlobalSineAnimation = SGUILayout.Toggle(GlobalSineAnimation);
+									GlobalRandomOffset = GlobalScrolling = GlobalSineAnimation;
+								}
+								EndHorizontal();
+								
 								BeginHorizontal();
 								{
 									bool highlighted = !IsDefaultImplementation ? UseCustomSineAnimVariable() : SineAnimationVariable != GetDefaultImplementation<Imp_MaterialProperty_Texture>().SineAnimationVariable;
@@ -4200,7 +4234,7 @@ namespace ToonyColorsPro
 						{
 							SGUILayout.InlineLabel("Prepend Code");
 							EditorGUI.BeginChangeCheck();
-							prependCode = SGUILayout.TextArea(prependCode, 90);
+							prependCode = SGUILayout.TextArea(prependCode, 90, true);
 							if (EditorGUI.EndChangeCheck())
 							{
 								CheckReplacementTags();
@@ -4303,7 +4337,7 @@ namespace ToonyColorsPro
 					{
 						SGUILayout.InlineLabel("Code");
 						EditorGUI.BeginChangeCheck();
-						code = SGUILayout.TextField(code);
+						code = SGUILayout.TextField(code, monospace: true);
 						if (EditorGUI.EndChangeCheck())
 						{
 							CheckReplacementTags();
@@ -4894,7 +4928,7 @@ namespace ToonyColorsPro
 						variables += string.Format("\n{0}float {1};", indent, saturationVariable);
 					if (hasVal)
 						variables += string.Format("\n{0}float {1};", indent, valueVariable);
-					return variables;
+					return variables.TrimStart('\n');
 				}
 
 				public string PrintVariableHSV(string currentReplacement)
@@ -5527,6 +5561,12 @@ namespace ToonyColorsPro
 				{
 					var hideChannels = TryGetArgument("hide_channels", arguments);
 					var channels = string.IsNullOrEmpty(hideChannels) ? "." + Channels.ToLowerInvariant() : "";
+
+					if (ParentShaderProperty.IsUsedInLightingFunction && ShaderGenerator2.IsInLightingFunction)
+					{
+						return string.Format("surface.{0}{1}", LinkedCustomMaterialProperty.PrintVariableFragment(), channels);
+					}
+					
 					return string.Format("{0}{1}", LinkedCustomMaterialProperty.PrintVariableFragment(), channels);
 				}
 
@@ -5547,7 +5587,8 @@ namespace ToonyColorsPro
 					{
 						SGUILayout.InlineLabel("Custom Property");
 
-						if (GUILayout.Button((LinkedCustomMaterialProperty != null) ? LinkedCustomMaterialProperty.Label : "None", SGUILayout.Styles.ShurikenPopup))
+						var rect = EditorGUILayout.GetControlRect();
+						if (GUI.Button(rect, (LinkedCustomMaterialProperty != null) ? LinkedCustomMaterialProperty.Label : "None", SGUILayout.Styles.ShurikenPopup))
 						{
 							var menu = CreateCustomMaterialPropertiesMenu();
 							menu.ShowAsContext();

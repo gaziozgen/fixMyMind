@@ -373,6 +373,8 @@ namespace ToonyColorsPro
 					{
 						_HeaderDropDown = new GUIStyle(EditorStyles.foldout);
 
+						_HeaderDropDown.clipping = TextClipping.Clip;
+
 						_HeaderDropDown.focused.background = _HeaderDropDown.normal.background;
 						_HeaderDropDown.active.background = _HeaderDropDown.normal.background;
 						_HeaderDropDown.onFocused.background = _HeaderDropDown.onNormal.background;
