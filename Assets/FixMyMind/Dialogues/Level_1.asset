@@ -15,9 +15,9 @@ MonoBehaviour:
   otherSide:
   - Why are you late for work?
   - Wanna get fired?
-  - Oh really, how was it gone?
+  - Oh really, how was it?
   - Then give your resignation!
-  - This is your last chance
+  - This is your last chance!
   - Very good news!
   - Why?
   - Haha, I don't fire you :D
@@ -30,18 +30,18 @@ MonoBehaviour:
   - Oh no!
   us:
   - empty
-  - I was sleep
-  - I was at a meeting with investors
-  - Yes, I found a better job
-  - No, I will be more careful
+  - I fell asleep.
+  - I was at a meeting with investors.
+  - Yes, I found a better job.
+  - No, I will be more careful.
   - They want to work with us!
-  - They don't interested in our project
-  - I need to be fired for compensation
+  - They are not interested in our project.
+  - I need to be fired for compensation.
   - Then take it!
-  - I will make it up
+  - I will make it up.
   - I don't care!
-  - But I rejected them
-  - I will take care of them
+  - But I rejected them.
+  - I will take care of them.
   - Just kidding, I got the job :D
   - They found our project simple :(
   finishIndexes: 0700000008000000090000000a0000000b0000000c0000000d0000000e000000

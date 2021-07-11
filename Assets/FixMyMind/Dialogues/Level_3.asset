@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Level_3
   m_EditorClassIdentifier: 
   otherSide:
-  - You have been acting cold for a long time :(
-  - I felt lonely
+  - You've been acting cold for a long time :(
+  - I felt lonely.
   - Why? :(
-  - Let's spend more time then :)
+  - Let's spend more time together then :)
   - Am I not your girlfriend?
   - Was everything a lie?
   - What happened?
-  - You always the same :(
+  - You are always the same :(
   - Yeyy! :D
   - Okay :(
   - I loved you :(
@@ -30,15 +30,15 @@ MonoBehaviour:
   - Go duck yourself!!
   us:
   - empty
-  - I was working (Lie)
-  - We should break up
+  - I was working. (Lie)
+  - We should break up.
   - Yes, I neglected you :(
-  - I don't have time for you
+  - I don't have time for you.
   - I am an FBI agent. I have to go!
-  - I don't like you anymore
-  - Maybe, I'll call you later
-  - Let's go to the cinema
-  - You are, but forgive me :(
+  - I don't like you anymore.
+  - Maybe, I'll call you later.
+  - Let's go to the cinema.
+  - You are, please forgive me :(
   - Not anymore :(
   - No, I really loved you!
   - Yes, everything was a mission.
