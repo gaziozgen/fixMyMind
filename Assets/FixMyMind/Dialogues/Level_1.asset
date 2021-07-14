@@ -15,34 +15,34 @@ MonoBehaviour:
   otherSide:
   - Why are you late for work?
   - Wanna get fired?
-  - Oh really, how was it?
+  - Oh really! How is it now?
   - Then give your resignation!
   - This is your last chance!
-  - Very good news!
-  - Why?
+  - It's so nice. Can I see?
+  - Why did you leave it there?
   - Haha, I don't fire you :D
   - Get out!
   - Okay than :)
   - Get out then!
-  - You idiot!!
-  - Great work! Congrats!
-  - Great work!
-  - Oh no!
+  - You are a good man but let me know next time.
+  - Grr, liar!
+  - Good thing nothing happened to you. We need you.
+  - You are a very bad person. You're fired!
   us:
   - empty
   - I fell asleep.
-  - I was at a meeting with investors.
+  - The cat I saw on the street was sick. I took it to the vet.
   - Yes, I found a better job.
   - No, I will be more careful.
-  - They want to work with us!
-  - They are not interested in our project.
+  - The cat is okay now. I owned it.
+  - I do not know. I left it there.
   - I need to be fired for compensation.
   - Then take it!
   - I will make it up.
   - I don't care!
-  - But I rejected them.
-  - I will take care of them.
-  - Just kidding, I got the job :D
-  - They found our project simple :(
+  - Unfortunately. I left at home (lie)
+  - No, just overslept (truth)
+  - A dog was chasing me. (lie)
+  - This is not my problem.
   finishIndexes: 0700000008000000090000000a0000000b0000000c0000000d0000000e000000
-  happinesPoints: 32000000ecffffff08000000ecffffff1300000015000000e2ffffff14000000f6ffffff15000000e2ffffffceffffff1500000032000000ecffffff
+  happinesPoints: 32000000ecffffff0a000000ecffffff130000000f0000000000000014000000f6ffffff15000000e2ffffff19000000ceffffff14000000d8ffffff

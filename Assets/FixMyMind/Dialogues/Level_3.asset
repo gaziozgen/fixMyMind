@@ -24,9 +24,9 @@ MonoBehaviour:
   - Yeyy! :D
   - Okay :(
   - I loved you :(
-  - I know it :)
+  - I will miss you!
   - I loved you :(
-  - You are my hero :)
+  - Sure it is...
   - Go duck yourself!!
   us:
   - empty
@@ -34,7 +34,7 @@ MonoBehaviour:
   - We should break up.
   - Yes, I neglected you :(
   - I don't have time for you.
-  - I am an FBI agent. I have to go!
+  - I am an FBI agent. I have to go! (bad Lie)
   - I don't like you anymore.
   - Maybe, I'll call you later.
   - Let's go to the cinema.
@@ -42,7 +42,7 @@ MonoBehaviour:
   - Not anymore :(
   - No, I really loved you!
   - Yes, everything was a mission.
-  - I have to save the world!
+  - I have to save the world! (bad lie)
   - I love someone else!
   finishIndexes: 0700000008000000090000000a0000000b0000000c0000000d0000000e000000
-  happinesPoints: 3200000014000000e2ffffff00000000ecffffff00000000f6ffffffecffffff1e00000000000000e2ffffff3c000000f6ffffff3c000000f6ffffff
+  happinesPoints: 3200000014000000e2ffffff00000000ecffffff00000000f6ffffffecffffff1e00000000000000e2ffffff3c000000f6fffffff6fffffff6ffffff
