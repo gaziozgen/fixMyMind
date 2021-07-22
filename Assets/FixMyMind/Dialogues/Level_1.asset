@@ -30,8 +30,8 @@ MonoBehaviour:
   - You are a very bad person. You're fired!
   us:
   - empty
-  - I fell asleep.
-  - The cat I saw on the street was sick. I took it to the vet.
+  - I fell asleep(Bad Lie)
+  - The cat I saw on the street was sick. I took it to the vet.(Lie)
   - Yes, I found a better job.
   - No, I will be more careful.
   - The cat is okay now. I owned it.
@@ -40,9 +40,9 @@ MonoBehaviour:
   - Then take it!
   - I will make it up.
   - I don't care!
-  - Unfortunately. I left at home (lie)
-  - No, just overslept (truth)
-  - A dog was chasing me. (lie)
+  - Unfortunately. I left at home (Lie)
+  - No, just overslept (Truth)
+  - A dog was chasing me. (Lie)
   - This is not my problem.
   finishIndexes: 0700000008000000090000000a0000000b0000000c0000000d0000000e000000
   happinesPoints: 32000000ecffffff0a000000ecffffff130000000f0000000000000014000000f6ffffff15000000e2ffffff19000000ceffffff14000000d8ffffff
